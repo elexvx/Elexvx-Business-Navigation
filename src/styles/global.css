@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* 全局字体设置 */
+* {
+  font-family: 'Roboto', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 锚点偏移量，避免被固定元素遮挡 */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}
+
+/* 自定义样式 */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 滚动条样式优化 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 侧边栏滚动条 */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 2px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* 日夜模式样式 */
+#main-content {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+:root {
+  --bg-main: #f9fafb; /* gray-50 */
+  --text-main: #111827; /* gray-900 */
+  --card-bg: rgba(255,255,255,0.9);
+  --card-bg-hover: #ffffff;
+  --card-border: rgba(209,213,219,0.5); /* gray-200/50 */
+  --icon-bg: rgba(249,250,251,0.5); /* gray-50/50 */
+  --text-title: #1f2937; /* gray-800 */
+  --text-desc: #4b5563; /* gray-600 */
+  --category-text: #6b7280; /* gray-500 */
+  --search-bg: rgba(249,250,251,0.8); /* gray-50/80 */
+  --search-border: rgba(209,213,219,0.5);
+}
+
+#main-content.dark-mode {
+  --bg-main: #111827; /* gray-900 */
+  --text-main: #f9fafb; /* gray-50 */
+  --card-bg: rgba(31,41,55,0.9); /* gray-800/90 */
+  --card-bg-hover: #1f2937; /* gray-800 */
+  --card-border: rgba(55,65,81,0.5); /* gray-700/50 */
+  --icon-bg: rgba(31,41,55,0.5); /* gray-800/50 */
+  --text-title: #f3f4f6; /* gray-200 */
+  --text-desc: #9ca3af; /* gray-400 */
+  --category-text: #9ca3af; /* gray-400 */
+  --search-bg: rgba(17,24,39,0.8); /* gray-900/80 */
+  --search-border: rgba(55,65,81,0.5);
+}
+
+/* 覆盖 Tailwind 类 */
+#main-content.dark-mode .bg-white\/90 {
+  background-color: var(--card-bg);
+}
+#main-content.dark-mode .hover\:bg-white:hover {
+  background-color: var(--card-bg-hover);
+}
+#main-content.dark-mode .border-gray-200\/50 {
+  border-color: var(--card-border);
+}
+#main-content.dark-mode .bg-gray-50\/50 {
+  background-color: var(--icon-bg);
+}
+#main-content.dark-mode .text-gray-800 {
+  color: var(--text-title);
+}
+#main-content.dark-mode .text-gray-600 {
+  color: var(--text-desc);
+}
+#main-content.dark-mode .text-gray-500 {
+  color: var(--category-text);
+}
+#main-content.dark-mode .bg-gray-50\/80 {
+  background-color: var(--search-bg);
+}
+#main-content.dark-mode .border-b.border-gray-200\/50 {
+  border-color: var(--search-border);
+}
+/* 搜索框特定覆盖 */
+#main-content.dark-mode .bg-white {
+  background-color: var(--search-input-bg);
+}
+#main-content.dark-mode .border-gray-200 {
+  border-color: var(--search-border);
+}
+#main-content.dark-mode .text-gray-700 {
+  color: var(--text-desc);
+}
+#main-content.dark-mode .hover\:text-blue-600:hover {
+  color: var(--accent-light);
+}
+#main-content.dark-mode .hover\:bg-gray-50:hover {
+  background-color: var(--hover-light);
+}
+#main-content.dark-mode .bg-blue-50 {
+  background-color: var(--accent-bg);
+}
+#main-content.dark-mode .text-blue-600 {
+  color: var(--accent);
+}
+/* 更新变量定义 */
+:root {
+  --search-input-bg: #ffffff;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --hover-light: #f3f4f6;
+  --accent-bg: #eff6ff;
+}
+#main-content.dark-mode {
+  --search-input-bg: #1f2937; /* gray-800 */
+  --accent: #93c5fd;
+  --accent-light: #bfdbfe;
+  --hover-light: #374151;
+  --accent-bg: #1e40af;
+}
+#main-content.dark-mode .text-gray-900 {
+  color: var(--text-title);
+}
+#main-content.dark-mode .group-hover\:text-blue-600:hover {
+  color: var(--accent);
+}
+/* 添加更多覆盖根据需要 */

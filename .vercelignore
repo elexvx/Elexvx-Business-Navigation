@@ -1,0 +1,13 @@
+# 不上传这些文件到 Vercel
+.git
+.gitignore
+README.md
+.astro
+node_modules
+dist
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.idea
+.vscode
