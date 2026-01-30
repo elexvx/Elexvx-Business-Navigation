@@ -47,7 +47,7 @@ export const navigation: NavigationCategory[] = [
         description: "南京保安员考试题库",
         icon: "/images/logos/kaoshixing.png",
         tags: ["题库", "考试"],
-        status: "available" 
+        status: "available"
       },
     ]
   },
@@ -177,19 +177,19 @@ export const navigation: NavigationCategory[] = [
         status: "available" // 正常可用状态
       },
       {
-        name: "企查查",
-        url: "https://www.qcc.com/",
-        description: "企查查",
-        icon: "/images/logos/qcc.png",
-        tags: ["企业查询", "工商信息"],
-        status: "available" // 正常可用状态
-      },
-      {
         name: "爱企查-宏翔商道-科技",
         url: "https://aiqicha.baidu.com/company_detail_56215758055636",
         description: "爱企查",
         icon: "/images/logos/aiqicha.png",
         tags: ["企业查询", "科技公司"],
+        status: "available" // 正常可用状态
+      },
+      {
+        name: "爱企查-林汐智觉",
+        url: "https://aiqicha.baidu.com/company_detail_63903449782455",
+        description: "爱企查",
+        icon: "/images/logos/aiqicha.png",
+        tags: ["企业查询", "林汐智觉"],
         status: "available" // 正常可用状态
       },
       {
@@ -222,57 +222,65 @@ export const navigation: NavigationCategory[] = [
         description: "企查查",
         icon: "/images/logos/qcc.png",
         tags: ["企业查询", "劳务公司"],
-         // 正常可用状态
-          },
-            ]
-          },
-          {
-            category: "人工智能",
-            links: [
-          {
-            name: "OpenAI官网",
-            url: "https://openai.com/zh-Hans-CN/",
-            description: "OpenAI官方网站",
-            icon: "/images/logos/chatgpt.png",
-            tags: ["AI", "ChatGPT"],
-            status: "available" // 正常可用状态
-          },
-          {
-            name: "ChatGPT",
-            url: "https://chatgpt.com/",
-            description: "ChatGPT对话平台",
-            icon: "/images/logos/chatgpt.png",
-            tags: ["AI", "对话"],
-            status: "available" // 正常可用状态
-          },
-          {
-            name: "Gemini",
-            url: "https://gemini.google.com/",
-            description: "Google Gemini AI助手",
-            icon: "/images/logos/gemini.png",
-            tags: ["AI", "Google"],
-            status: "available" // 正常可用状态
-          },
-          {
-            name: "Google AI Studio",
-            url: "https://aistudio.google.com/prompts/new_chat",
-            description: "Google AI Studio",
-            icon: "/images/logos/gemini.png",
-            tags: ["AI", "Google"],
-            status: "available" // 正常可用状态
-          }
-            ]
-          },
-          {
-            category: "公众平台",
-            links: [
-          {
-            name: "微信公众服务",
-            url: "https://mp.weixin.qq.com/",
-            description: "微信公众平台",
-            icon: "/images/logos/weixin.png",
-            tags: ["微信", "公众号"],
-            status: "available" // 正常可用状态
+        // 正常可用状态
+      },
+      {
+        name: "企查查-林汐智觉",
+        url: "https://www.qcc.com/firm/cf32a80cda71ce49879501a1c04cf4cf.html",
+        description: "企查查",
+        icon: "/images/logos/qcc.png",
+        tags: ["企业查询", "林汐智觉"],
+        // 正常可用状态
+      },
+    ]
+  },
+  {
+    category: "人工智能",
+    links: [
+      {
+        name: "OpenAI官网",
+        url: "https://openai.com/zh-Hans-CN/",
+        description: "OpenAI官方网站",
+        icon: "/images/logos/chatgpt.png",
+        tags: ["AI", "ChatGPT"],
+        status: "available" // 正常可用状态
+      },
+      {
+        name: "ChatGPT",
+        url: "https://chatgpt.com/",
+        description: "ChatGPT对话平台",
+        icon: "/images/logos/chatgpt.png",
+        tags: ["AI", "对话"],
+        status: "available" // 正常可用状态
+      },
+      {
+        name: "Gemini",
+        url: "https://gemini.google.com/",
+        description: "Google Gemini AI助手",
+        icon: "/images/logos/gemini.png",
+        tags: ["AI", "Google"],
+        status: "available" // 正常可用状态
+      },
+      {
+        name: "Google AI Studio",
+        url: "https://aistudio.google.com/prompts/new_chat",
+        description: "Google AI Studio",
+        icon: "/images/logos/gemini.png",
+        tags: ["AI", "Google"],
+        status: "available" // 正常可用状态
+      }
+    ]
+  },
+  {
+    category: "公众平台",
+    links: [
+      {
+        name: "微信公众服务",
+        url: "https://mp.weixin.qq.com/",
+        description: "微信公众平台",
+        icon: "/images/logos/weixin.png",
+        tags: ["微信", "公众号"],
+        status: "available" // 正常可用状态
       },
       {
         name: "135编辑器",
