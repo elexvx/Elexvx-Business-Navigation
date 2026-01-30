@@ -160,8 +160,9 @@ const { title, showSearch = true, ...seoProps } = Astro.props;
 
 	<script>
     document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('toggle');
+      const toggle = document.getElementById('toggle') as HTMLInputElement | null;
       const mainContent = document.getElementById('main-content');
+      if (!toggle || !mainContent) return;
       
       // 检查本地存储中的主题设置
       const savedTheme = localStorage.getItem('theme');
