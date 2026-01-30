@@ -132,6 +132,14 @@ export const navigation: NavigationCategory[] = [
         status: "available" // 正常可用状态
       },
       {
+        name: "专利审查状态查询",
+        url: "https://cpquery.cponline.cnipa.gov.cn/chinesepatent/index",
+        description: "状态查询",
+        icon: "/images/logos/cnipa-2.png",
+        tags: ["专利", "申请"],
+        status: "available" // 正常可用状态
+      },
+      {
         name: "中国商标网",
         url: "https://sso.cnipa.gov.cn/am/#/login",
         description: "商标注册申请",

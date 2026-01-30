@@ -2,6 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 import { navigation, type NavigationCategory } from '../config/links';
 
+const iconMap: Record<string, string> = {
+  check: '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" />',
+  tool: '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6-6a6 6 0 0 1 -8 -8l3.5 3.5" />',
+  x: '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />',
+  star: '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />',
+  'alert-triangle': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" />'
+};
+
+const statusConfig: Record<string, { text: string; color: string; iconName: string }> = {
+  available: { text: '可用', color: 'text-green-600', iconName: 'check' },
+  maintenance: { text: '维护中', color: 'text-orange-600', iconName: 'tool' },
+  unavailable: { text: '不可访问', color: 'text-red-600', iconName: 'x' },
+  beta: { text: '测试版', color: 'text-blue-600', iconName: 'star' },
+  deprecated: { text: '已弃用', color: 'text-gray-500', iconName: 'alert-triangle' }
+};
+
 // 获取所有链接的总数
 function getTotalLinks(categories: NavigationCategory[]): number {
   return categories.reduce((total, category) => {
@@ -200,24 +216,9 @@ function getTotalCategories(categories: NavigationCategory[]): number {
                                 )}
                               </div>
                               {(() => {
-                                const iconMap = {
-                                  'check': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" />',
-                                  'tool': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6-6a6 6 0 0 1 -8 -8l3.5 3.5" />',
-                                  'x': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />',
-                                  'star': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />',
-                                  'alert-triangle': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" />'
-                                };
-
-                                const statusConfig = {
-                                  available: { text: '可用', color: 'text-green-600', iconName: 'check' },
-                                  maintenance: { text: '维护中', color: 'text-orange-600', iconName: 'tool' },
-                                  unavailable: { text: '不可访问', color: 'text-red-600', iconName: 'x' },
-                                  beta: { text: '测试版', color: 'text-blue-600', iconName: 'star' },
-                                  deprecated: { text: '已弃用', color: 'text-gray-500', iconName: 'alert-triangle' }
-                                };
                                 const currentStatus = link.status || 'available';
-                                const { text, color, iconName } = statusConfig[currentStatus];
-                                const icon = iconMap[iconName];
+                                const { text, color, iconName } = statusConfig[currentStatus] || statusConfig.available;
+                                const icon = iconMap[iconName] || iconMap.check;
                                 return (
                                   <div class={`flex items-center text-xs ${color}`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler w-4 h-4 mr-1" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" set:html={icon}></svg>
@@ -293,24 +294,9 @@ function getTotalCategories(categories: NavigationCategory[]): number {
                           )}
                         </div>
                         {(() => {
-                          const iconMap = {
-                            'check': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" />',
-                            'tool': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6-6a6 6 0 0 1 -8 -8l3.5 3.5" />',
-                            'x': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />',
-                            'star': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />',
-                            'alert-triangle': '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" />'
-                          };
-
-                          const statusConfig = {
-                            available: { text: '可用', color: 'text-green-600', iconName: 'check' },
-                            maintenance: { text: '维护中', color: 'text-orange-600', iconName: 'tool' },
-                            unavailable: { text: '不可访问', color: 'text-red-600', iconName: 'x' },
-                            beta: { text: '测试版', color: 'text-blue-600', iconName: 'star' },
-                            deprecated: { text: '已弃用', color: 'text-gray-500', iconName: 'alert-triangle' }
-                          };
                           const currentStatus = link.status || 'available';
-                          const { text, color, iconName } = statusConfig[currentStatus];
-                          const icon = iconMap[iconName];
+                          const { text, color, iconName } = statusConfig[currentStatus] || statusConfig.available;
+                          const icon = iconMap[iconName] || iconMap.check;
                           return (
                             <div class={`flex items-center text-xs ${color}`}>
                               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler w-4 h-4 mr-1" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" set:html={icon}></svg>

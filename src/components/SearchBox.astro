@@ -92,7 +92,6 @@ const searchEnginesData = Object.fromEntries(
   const currentEngineIcon = document.getElementById('current-engine-icon');
   const currentEngineName = document.getElementById('current-engine-name');
   
-  // 生成搜索 URL
   function generateSearchUrl(engine, query) {
     if (!query.trim()) return '#';
     const url = new URL(searchEnginesData[engine].baseUrl);

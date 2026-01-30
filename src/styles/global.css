@@ -79,6 +79,11 @@ html {
   --category-text: #6b7280; /* gray-500 */
   --search-bg: rgba(249,250,251,0.8); /* gray-50/80 */
   --search-border: rgba(209,213,219,0.5);
+  --search-input-bg: #ffffff;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --hover-light: #f3f4f6;
+  --accent-bg: #eff6ff;
 }
 
 #main-content.dark-mode {
@@ -93,6 +98,11 @@ html {
   --category-text: #9ca3af; /* gray-400 */
   --search-bg: rgba(17,24,39,0.8); /* gray-900/80 */
   --search-border: rgba(55,65,81,0.5);
+  --search-input-bg: #1f2937; /* gray-800 */
+  --accent: #93c5fd;
+  --accent-light: #bfdbfe;
+  --hover-light: #374151;
+  --accent-bg: #1e40af;
 }
 
 /* 覆盖 Tailwind 类 */
@@ -144,21 +154,6 @@ html {
 }
 #main-content.dark-mode .text-blue-600 {
   color: var(--accent);
-}
-/* 更新变量定义 */
-:root {
-  --search-input-bg: #ffffff;
-  --accent: #3b82f6;
-  --accent-light: #60a5fa;
-  --hover-light: #f3f4f6;
-  --accent-bg: #eff6ff;
-}
-#main-content.dark-mode {
-  --search-input-bg: #1f2937; /* gray-800 */
-  --accent: #93c5fd;
-  --accent-light: #bfdbfe;
-  --hover-light: #374151;
-  --accent-bg: #1e40af;
 }
 #main-content.dark-mode .text-gray-900 {
   color: var(--text-title);

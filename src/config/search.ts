@@ -59,16 +59,6 @@ export function getSearchEngine(name: string): SearchEngine | undefined {
   return searchEngines.find(engine => engine.name === name);
 }
 
-// 生成搜索 URL
-export function generateSearchUrl(engineName: string, query: string): string {
-  const engine = getSearchEngine(engineName);
-  if (!engine || !query.trim()) return '#';
-  
-  const url = new URL(engine.baseUrl);
-  url.searchParams.set(engine.queryParam, query.trim());
-  return url.toString();
-}
-
 // 搜索配置
 export interface SearchConfig {
   defaultEngine: string;

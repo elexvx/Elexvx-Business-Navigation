@@ -1,5 +1,5 @@
 ---
-import { navigation, type NavigationCategory } from '../config/links';
+import { navigation } from '../config/links';
 ---
 
 <aside class="w-64 bg-gray-900 text-white h-screen fixed left-0 top-0 z-50 transform transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full flex flex-col" id="sidebar">
@@ -62,7 +62,7 @@ import { navigation, type NavigationCategory } from '../config/links';
             
             <!-- 二级分类列表 -->
             <div class="ml-6 mt-2 space-y-2 subcategory-list overflow-hidden transition-all duration-300 ease-in-out" data-category={groupIndex} style="max-height: 0; opacity: 0;">
-              {group.subcategories.map((subcategory, subIndex) => (
+              {group.subcategories.map((subcategory) => (
                 <a 
                   href={`#subcategory-${group.category.replace(/\s+/g, '-').replace(/[^\u4e00-\u9fa5a-zA-Z0-9\-]/g, '')}-${subcategory.name.replace(/\s+/g, '-').replace(/[^\u4e00-\u9fa5a-zA-Z0-9\-&]/g, '')}`}
                   class="block border-l-2 border-gray-700 pl-4 py-2 text-gray-400 hover:text-white hover:border-blue-500 transition-all duration-300 hover:translate-x-2 hover:bg-gray-800/50 rounded-r-lg anchor-link group border-animate"
@@ -97,16 +97,16 @@ import { navigation, type NavigationCategory } from '../config/links';
   <script>
     // 侧边栏分类展开/收起功能
     document.addEventListener('DOMContentLoaded', () => {
-      const toggleButtons = document.querySelectorAll('.category-toggle');
-      const anchorLinks = document.querySelectorAll('.anchor-link');
+      const toggleButtons = document.querySelectorAll<HTMLButtonElement>('.category-toggle');
+      const anchorLinks = document.querySelectorAll<HTMLAnchorElement>('.anchor-link');
       const sidebar = document.getElementById('sidebar');
       
       // 分类展开/收起功能（手风琴效果 + 动画）
       toggleButtons.forEach(button => {
         button.addEventListener('click', () => {
           const categoryIndex = button.getAttribute('data-category');
-          const subcategoryList = document.querySelector(`[data-category="${categoryIndex}"].subcategory-list`);
-          const chevron = button.querySelector('.chevron');
+          const subcategoryList = document.querySelector<HTMLElement>(`[data-category="${categoryIndex}"].subcategory-list`);
+          const chevron = button.querySelector<HTMLElement>('.chevron');
           
           if (subcategoryList) {
             const isExpanded = subcategoryList.style.maxHeight && subcategoryList.style.maxHeight !== '0px';
@@ -114,13 +114,13 @@ import { navigation, type NavigationCategory } from '../config/links';
             // 如果当前分类要展开，先收起所有其他分类
             if (!isExpanded) {
               // 收起所有其他分类（带动画）
-              document.querySelectorAll('.subcategory-list').forEach(list => {
+              document.querySelectorAll<HTMLElement>('.subcategory-list').forEach(list => {
                 if (list !== subcategoryList) {
                   list.style.maxHeight = '0px';
                   list.style.opacity = '0';
                   // 重置对应的箭头（带动画）
                   const otherCategoryIndex = list.getAttribute('data-category');
-                  const otherChevron = document.querySelector(`[data-category="${otherCategoryIndex}"].category-toggle .chevron`);
+                  const otherChevron = document.querySelector<HTMLElement>(`[data-category="${otherCategoryIndex}"].category-toggle .chevron`);
                   if (otherChevron) {
                     otherChevron.style.transform = 'rotate(0deg)';
                   }
@@ -133,12 +133,12 @@ import { navigation, type NavigationCategory } from '../config/links';
               // 收起动画
               subcategoryList.style.maxHeight = '0px';
               subcategoryList.style.opacity = '0';
-              chevron.style.transform = 'rotate(0deg)';
+              if (chevron) chevron.style.transform = 'rotate(0deg)';
             } else {
               // 展开动画
               subcategoryList.style.maxHeight = subcategoryList.scrollHeight + 'px';
               subcategoryList.style.opacity = '1';
-              chevron.style.transform = 'rotate(90deg)';
+              if (chevron) chevron.style.transform = 'rotate(90deg)';
             }
           }
         });
@@ -148,7 +148,9 @@ import { navigation, type NavigationCategory } from '../config/links';
       anchorLinks.forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          const targetId = link.getAttribute('href').substring(1);
+          const href = link.getAttribute('href');
+          if (!href) return;
+          const targetId = href.substring(1);
           const targetElement = document.getElementById(targetId);
           
           if (targetElement) {
@@ -160,7 +162,7 @@ import { navigation, type NavigationCategory } from '../config/links';
             
             // 在移动端关闭侧边栏
             if (window.innerWidth < 1024) {
-              sidebar.classList.add('-translate-x-full');
+              sidebar?.classList.add('-translate-x-full');
             }
           }
         });
